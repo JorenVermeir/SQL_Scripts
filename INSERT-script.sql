@@ -18,9 +18,9 @@ INSERT INTO spikee.klant( klant_id, naam ) VALUES
 --INSERT TABLE project --
 -- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.project(	project_id, start_datum, eind_datum, soort, tarief, klant_id ) VALUES 
-    (1, '1997-07-18', '2001-03-11', 'Fixed-Price', 4500, 1),
-    (2, '1997-07-18', '2007-11-11', 'T&M Project', 90000, 2),
+INSERT INTO spikee.project( project_id, start_datum, eind_datum, soort, tarief, klant_id ) VALUES 
+	(1, '1997-07-18', '2001-03-11', 'Fixed-Price', 4500, 1),
+	(2, '1997-07-18', '2007-11-11', 'T&M Project', 90000, 2),
 	(3, '1981-07-18', '2017-03-01', 'T&M Diensten', 35789.53, 3),
 	(4, '1917-01-19', '2011-04-27', 'Abonnement', 12, 4),
 	(5, '1998-04-18', '2018-09-21', 'Fixed-Price', 450900, 5),
@@ -28,34 +28,17 @@ INSERT INTO spikee.project(	project_id, start_datum, eind_datum, soort, tarief, 
 	(7, '1876-09-30', '2007-12-03', 'Abonnement', 97650, 7);
 
 -- ------------------------------------------------------------------ --
+--INSERT TABLE fase --
+-- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.fase(
-	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
-	VALUES (1, 'eind ontwikkeling', 123,678 , 97650, 5678);
-
-INSERT INTO spikee.fase(
-	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
-	VALUES (2, 'eind ontwikkeling', 56,876 , 97650, 5678);
-	
-INSERT INTO spikee.fase(
-	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
-	VALUES (3, 'eind ontwikkeling', 5678, 76, 97650, 5678);
-	
-INSERT INTO spikee.fase(
-	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
-	VALUES (4, 'eind ontwikkeling', 678, 678, 97650, 5678);
-	
-INSERT INTO spikee.fase(
-	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
-	VALUES (5, 'eind ontwikkeling', 9865, 6543, 97650, 5678);
-	
-INSERT INTO spikee.fase(
-	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
-	VALUES (6, 'eind ontwikkeling', 567, 765, 97650, 5678);
-
-INSERT INTO spikee.fase(
-	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
-	VALUES (7, 'eind ontwikkeling', 6789, 65, 97650, 5678);
+INSERT INTO spikee.fase( project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget ) VALUES
+	(1, 'eind ontwikkeling', 123,678 , 97650, 5678),
+	(2, 'eind ontwikkeling', 56,876 , 97650, 5678),
+	(3, 'eind ontwikkeling', 5678, 76, 97650, 5678),	
+	(4, 'eind ontwikkeling', 678, 678, 97650, 5678),
+	(5, 'eind ontwikkeling', 9865, 6543, 97650, 5678),
+	(6, 'eind ontwikkeling', 567, 765, 97650, 5678),
+	(7, 'eind ontwikkeling', 6789, 65, 97650, 5678);
 
 -- ------------------------------------------------------------------ --
 
