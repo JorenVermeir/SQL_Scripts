@@ -86,33 +86,14 @@ INSERT INTO spikee.task( task_id, voorziene_budget, gebruikte_budget, project_id
 
 
 
-INSERT INTO spikee.team(
-	team_id, naam)
-	VALUES (1, 'netwerken');
-
-INSERT INTO spikee.team(
-	team_id, naam)
-	VALUES (2, 'OOP');
-
-INSERT INTO spikee.team(
-	team_id, naam)
-	VALUES (3, 'linux');
-
-INSERT INTO spikee.team(
-	team_id, naam)
-	VALUES (4, 'onderhoud');
-
-INSERT INTO spikee.team(
-	team_id, naam)
-	VALUES (5, 'grafisch');
-
-INSERT INTO spikee.team(
-	team_id, naam)
-	VALUES (6, 'UML');
-
-INSERT INTO spikee.team(
-	team_id, naam)
-	VALUES (7, 'algo');
+INSERT INTO spikee.team(team_id, naam )
+	VALUES (1, 'netwerken'),
+	(2, 'OOP'),
+	(3, 'linux'),
+	(4, 'onderhoud'),
+	(5, 'grafisch'),
+	(6, 'UML'),
+	(7, 'algo');
 
 
 
