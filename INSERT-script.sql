@@ -1,72 +1,31 @@
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (1, 'Mathias');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (2, 'Shiva');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (3, 'Arnold');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (4, 'Pietsnol');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (5, 'Jaak');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (6, 'Freddie');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (7, 'Dirk');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (8, 'Jan');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (9, 'Sam');
-
-INSERT INTO spikee.klant(
-	klant_id, naam)
-	VALUES (10, 'Rune');
-
+-- ------------------------------------------------------------------ --
+--INSERT TABLE klant --
 -- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.project(
-	project_id, start_datum, eind_datum, soort, tarief)
-	VALUES (1, '1997-07-18', '2001-03-11', 'onderhoud', 4500);
+INSERT INTO spikee.klant( klant_id, naam ) VALUES
+	(1, 'Mathias'),
+	(2, 'Shiva'),
+	(3, 'Arnold'),
+	(4, 'Pietsnol'),
+	(5, 'Jaak'),
+	(6, 'Freddie'),
+	(7, 'Dirk'),
+	(8, 'Jan'),
+	(9, 'Sam'),
+	(10, 'Rune');
 
-INSERT INTO spikee.project(
-	project_id, start_datum, eind_datum, soort, tarief)
-	VALUES (2, '1997-07-18', '2007-11-11', 'applicatie', 90000);
+-- ------------------------------------------------------------------ --
+--INSERT TABLE project --
+-- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.project(
-	project_id, start_datum, eind_datum, soort, tarief)
-	VALUES (3, '1981-07-18', '2017-03-01', 'onderhoud', 35789,53);
-
-INSERT INTO spikee.project(
-	project_id, start_datum, eind_datum, soort, tarief)
-	VALUES (4, '1917-01-19', '2011-04-27', 'website', 12);
-
-INSERT INTO spikee.project(
-	project_id, start_datum, eind_datum, soort, tarief)
-	VALUES (5, '1998-04-18', '2018-09-21', 'onderhoud', 450900);
-
-INSERT INTO spikee.project(
-	project_id, start_datum, eind_datum, soort, tarief)
-	VALUES (6, '1997-07-18', '2001-03-11', 'applicatie', 77500);
-	
-INSERT INTO spikee.project(
-	project_id, start_datum, eind_datum, soort, tarief)
-	VALUES (7, '1876-09-31', '2007-12-03', 'onderhoud', 97650);
+INSERT INTO spikee.project(	project_id, start_datum, eind_datum, soort, tarief, klant_id ) VALUES 
+    (1, '1997-07-18', '2001-03-11', 'Fixed-Price', 4500, 1),
+    (2, '1997-07-18', '2007-11-11', 'T&M Project', 90000, 2),
+	(3, '1981-07-18', '2017-03-01', 'T&M Diensten', 35789.53, 3),
+	(4, '1917-01-19', '2011-04-27', 'Abonnement', 12, 4),
+	(5, '1998-04-18', '2018-09-21', 'Fixed-Price', 450900, 5),
+	(6, '1997-07-18', '2001-03-11', 'T&M Diensten', 77500, 6),
+	(7, '1876-09-30', '2007-12-03', 'Abonnement', 97650, 7);
 
 -- ------------------------------------------------------------------ --
 
