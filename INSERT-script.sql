@@ -73,33 +73,14 @@ INSERT INTO spikee.task(
 	
 -- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.resources(
-	resource_id, soort)
-	VALUES (1, 'computer');
-
-INSERT INTO spikee.resources(
-	resource_id, soort)
-	VALUES (2, 'netwerk team');
-
-INSERT INTO spikee.resources(
-	resource_id, soort)
-	VALUES (3, 'programeur');
-
-INSERT INTO spikee.resources(
-	resource_id, soort)
-	VALUES (4, 'multimeter');
-
-INSERT INTO spikee.resources(
-	resource_id, soort)
-	VALUES (5, 'computer');
-
-INSERT INTO spikee.resources(
-	resource_id, soort)
-	VALUES (6, 'computer');
-
-INSERT INTO spikee.resources(
-	resource_id, soort)
-	VALUES (7, 'computer');
+INSERT INTO spikee.resources(resource_id, soort )
+	VALUES (1, 'computer'),
+	(2, 'netwerk team'),
+	(3, 'programeur'),
+	(4, 'multimeter'),
+	(5, 'computer'),
+	(6, 'computer'),
+	(7, 'computer');
 
 -- ------------------------------------------------------------------ --
 
