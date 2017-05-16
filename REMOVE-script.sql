@@ -1,0 +1,14 @@
+DELETE FROM spikee.werknemer_has_uren;
+DELETE FROM spikee.team_has_werknemer;
+DELETE FROM spikee.uren;
+DELETE FROM spikee.team_has_task;
+DELETE FROM spikee.fase;
+DELETE FROM spikee.task_has_resources;
+DELETE FROM spikee.resources;
+DELETE FROM spikee.problemen;
+DELETE FROM spikee.klant;
+DELETE FROM spikee.werknemer;
+DELETE FROM spikee.team;
+DELETE FROM spikee.verlof;
+DELETE FROM spikee.task;
+DELETE FROM spikee.project;
