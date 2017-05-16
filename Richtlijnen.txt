@@ -1,0 +1,7 @@
+queries,
+datamodels,
+create script,
+script for dummy text,
+functionalities,
+drop table scripts
+
