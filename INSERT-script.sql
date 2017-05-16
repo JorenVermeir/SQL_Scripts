@@ -92,10 +92,29 @@ INSERT INTO spikee.team(team_id, naam ) VALUES
 	(5, 'grafisch'),
 	(6, 'UML'),
 	(7, 'algo');
+	
+----------------------------------------------------------------- --
+--INSERT TABLE task --
+-- ------------------------------------------------------------------ --
 
+INSERT INTO spikee.verlof( verlof_id, begin_datum, eind_datum, werknemer_id ) VALUES
+	(1, '2012-10-05' , '2012-12-07', 1),
+	(2, '2017-09-28' , '2017-12-17', 5),
+	(3, '2000-08-25' , '2012-12-07', 7),
+	(4, '2004-01-15' , '2004-01-16', 2);
+
+----------------------------------------------------------------- --
+--INSERT TABLE problem --
 -- ------------------------------------------------------------------ --
--- probleem nog niet gedaan --
--- ------------------------------------------------------------------ --
+
+INSERT INTO spikee.problemen( probleem_id, description, prioriteit, task_id ) VALUES
+	(1, 'abcde', 'Laag', 3),
+	(1, 'abcdef', 'Medium', 5),
+	(1, 'abcdeg', 'Medium', 2),
+	(1, 'abcdeh', 'Laag', 7),
+	(1, 'abcdei', 'Hoog', 1),
+	(1, 'abcdej', 'Hoog', 4),
+	(1, 'abcdek', 'Medium', 6);
 
 
 
