@@ -32,49 +32,34 @@ INSERT INTO spikee.project( project_id, start_datum, eind_datum, soort, tarief, 
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.fase( project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget ) VALUES
-	(1, 'eind ontwikkeling', 123,678 , 97650, 5678),
-	(2, 'eind ontwikkeling', 56,876 , 97650, 5678),
-	(3, 'eind ontwikkeling', 5678, 76, 97650, 5678),	
-	(4, 'eind ontwikkeling', 678, 678, 97650, 5678),
-	(5, 'eind ontwikkeling', 9865, 6543, 97650, 5678),
-	(6, 'eind ontwikkeling', 567, 765, 97650, 5678),
-	(7, 'eind ontwikkeling', 6789, 65, 97650, 5678);
+	(1, 'onderhoud', '12:00:00', '13:00:00' , 97650, 5678),
+	(2, 'voorbereiding', '3300:00:00', '2200:00:00' , 97650, 5678),
+	(3, 'testing', '58:00:00', '59:00:00', 97650, 5678),	
+	(4, 'voorbereiding', '123:00:00', '132:00:00', 97650, 5678),
+	(5, 'verkoop', '2:00:00', '3:00:00', 97650, 5678),
+	(6, 'implementatie', '16:00:00', '15:00:00', 97650, 5678),
+	(7, 'ontwerp', '66:00:00', '55:00:00', 97650, 5678);
 
 -- ------------------------------------------------------------------ --
-
-
-INSERT INTO spikee.task(
-	task_id, voorziene_budget, gebruikte_budget)
-	VALUES (1, 567, 5678);
-	
-INSERT INTO spikee.task(
-	task_id, voorziene_budget, gebruikte_budget)
-	VALUES (2, 970, 245);
-	
-INSERT INTO spikee.task(
-	task_id, voorziene_budget, gebruikte_budget)
-	VALUES (3, 57986, 2455);
-	
-INSERT INTO spikee.task(
-	task_id, voorziene_budget, gebruikte_budget)
-	VALUES (4, 555, 555);
-	
-INSERT INTO spikee.task(
-	task_id, voorziene_budget, gebruikte_budget)
-	VALUES (5, 3456, 5678);
-	
-INSERT INTO spikee.task(
-	task_id, voorziene_budget, gebruikte_budget)
-	VALUES (6, 9876, 466);
-	
-INSERT INTO spikee.task(
-	task_id, voorziene_budget, gebruikte_budget)
-	VALUES (7, 567, 325676);
-	
+--INSERT TABLE werknemer --
 -- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.resources(resource_id, soort )
-	VALUES (1, 'computer'),
+<<<<<<< HEAD
+INSERT INTO spikee.werknemer( werknemer_id, ziek, loon_category ) VALUES 
+	(1, false, 'Hoog'),
+	(2, false, 'Laag'),
+	(3, false, 'Hoog'),
+	(4, true, 'Hoog'),
+	(5, false, 'Gemiddeld'),
+	(6, false, 'Hoog'),
+	(7, true, 'Laag');
+
+----------------------------------------------------------------- --
+--INSERT TABLE resources --
+-- ------------------------------------------------------------------ --
+
+INSERT INTO spikee.resources(resource_id, soort ) VALUES
+	(1, 'computer'),
 	(2, 'netwerk team'),
 	(3, 'programeur'),
 	(4, 'multimeter'),
@@ -82,11 +67,21 @@ INSERT INTO spikee.resources(resource_id, soort )
 	(6, 'computer'),
 	(7, 'computer');
 
+----------------------------------------------------------------- --
+--INSERT TABLE task --
 -- ------------------------------------------------------------------ --
 
-
+INSERT INTO spikee.task( task_id, voorziene_budget, gebruikte_budget, project_id ) VALUES 
+	(1, 567, 5678, 1),
+	(2, 970, 245, 2),
+	(3, 57986, 2455, 3),
+	(4, 555, 555, 4),
+	(5, 3456, 5678, 5),
+	(6, 9876, 466, 6),
+	(7, 567, 325676, 7);
+	
+-- ------------------------------------------------------------------ --
 -- probleem nogniet gedaan --
-
 -- ------------------------------------------------------------------ --
 
 
@@ -120,35 +115,4 @@ INSERT INTO spikee.team(
 	VALUES (7, 'algo');
 
 
--- ------------------------------------------------------------------ --
 
-
-INSERT INTO spikee.werknemer(
-	werknemer_id, ziek, loon_categorie)
-	VALUES (1, false, 'Hoog');
-	
-INSERT INTO spikee.werknemer(
-	werknemer_id, ziek, loon_categorie)
-	VALUES (2, false, 'Laag');
-
-INSERT INTO spikee.werknemer(
-	werknemer_id, ziek, loon_categorie)
-	VALUES (3, false, 'Hoog');
-
-INSERT INTO spikee.werknemer(
-	werknemer_id, ziek, loon_categorie)
-	VALUES (4, true, 'Hoog');
-
-INSERT INTO spikee.werknemer(
-	werknemer_id, ziek, loon_categorie)
-	VALUES (5, false, 'Gemiddeld');
-
-INSERT INTO spikee.werknemer(
-	werknemer_id, ziek, loon_categorie)
-	VALUES (6, false, 'Hoog');
-
-INSERT INTO spikee.werknemer(
-	werknemer_id, ziek, loon_categorie)
-	VALUES (7, true, 'Laag');
-
--- ------------------------------------------------------------------ --
