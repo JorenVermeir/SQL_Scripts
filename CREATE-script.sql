@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS Task (
     Gebruikte_budget MONEY NULL,
     Project_id SERIAL NOT NULL,
     
+    CONSTRAINT uq_Task UNIQUE (Task_id),
     CONSTRAINT pk_Task PRIMARY KEY (Task_id),
     CONSTRAINT fk_Task_Project FOREIGN KEY (Project_id)
     	REFERENCES Spikee.Project (Project_id)
@@ -98,7 +99,7 @@ CREATE TABLE IF NOT EXISTS Problemen (
     
     CONSTRAINT pk_Problemen PRIMARY KEY (Probleem_id),
     CONSTRAINT fk_Problemen_Task FOREIGN KEY (Task_id)
-    	REFERENCES Spikee.Task (Task_id , Project_id)
+    	REFERENCES Spikee.Task (Task_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
