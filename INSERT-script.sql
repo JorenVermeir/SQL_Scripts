@@ -79,21 +79,27 @@ INSERT INTO spikee.task( task_id, voorziene_budget, gebruikte_budget, project_id
 	(5, 3456, 5678, 5),
 	(6, 9876, 466, 6),
 	(7, 567, 325676, 7);
-	
+
+----------------------------------------------------------------- --
+--INSERT TABLE task --
 -- ------------------------------------------------------------------ --
--- probleem nogniet gedaan --
--- ------------------------------------------------------------------ --
 
-
-
-INSERT INTO spikee.team(team_id, naam )
-	VALUES (1, 'netwerken'),
+INSERT INTO spikee.team(team_id, naam ) VALUES
+	(1, 'netwerken'),
 	(2, 'OOP'),
 	(3, 'linux'),
 	(4, 'onderhoud'),
 	(5, 'grafisch'),
 	(6, 'UML'),
 	(7, 'algo');
+
+-- ------------------------------------------------------------------ --
+-- probleem nog niet gedaan --
+-- ------------------------------------------------------------------ --
+
+
+
+
 
 
 
