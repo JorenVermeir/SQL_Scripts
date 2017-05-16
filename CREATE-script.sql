@@ -38,8 +38,7 @@ CREATE TABLE IF NOT EXISTS Project (
     Tarief MONEY NULL,
     Klant_id SERIAL NOT NULL,
     
-    CONSTRAINT uq_Project UNIQUE (Project_id),
-    CONSTRAINT pk_Project_Klant PRIMARY KEY (Project_id),
+    CONSTRAINT pk_Project PRIMARY KEY (Project_id),
     CONSTRAINT fk_Project_Klant FOREIGN KEY (Klant_id)
     	REFERENCES Spikee.Klant (Klant_id)
     	ON DELETE RESTRICT
@@ -60,7 +59,7 @@ CREATE TABLE IF NOT EXISTS Fase (
     Voorzien_Budget MONEY NULL,
     Project_id SERIAL NOT NULL,
     
-    CONSTRAINT pk_Project PRIMARY KEY (Project_id),
+    CONSTRAINT pk_Fase PRIMARY KEY (Project_id, Stage),
     CONSTRAINT fk_Fase_Project FOREIGN KEY (Project_id)
     	REFERENCES Spikee.Project (Project_id)
     	ON DELETE RESTRICT
@@ -77,7 +76,6 @@ CREATE TABLE IF NOT EXISTS Task (
     Gebruikte_budget MONEY NULL,
     Project_id SERIAL NOT NULL,
     
-    CONSTRAINT uq_Task UNIQUE (Task_id),
     CONSTRAINT pk_Task PRIMARY KEY (Task_id),
     CONSTRAINT fk_Task_Project FOREIGN KEY (Project_id)
     	REFERENCES Spikee.Project (Project_id)
@@ -106,29 +104,29 @@ CREATE TABLE IF NOT EXISTS Problemen (
 
 
 -- -----------------------------------------------------
--- Table Resources
+-- Table Materials
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS Resources (
-    Resource_id SERIAL NOT NULL,
+CREATE TABLE IF NOT EXISTS Materials (
+    Material_id SERIAL NOT NULL,
     Soort VARCHAR(45) NULL,
     
-    CONSTRAINT pk_Resource PRIMARY KEY (Resource_id)
+    CONSTRAINT pk_Materials PRIMARY KEY (Material_id)
 );
 
 
 -- -----------------------------------------------------
--- Table Task_Has_Resources
+-- Table Task_Has_Materials
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS Task_Has_Resources (
-    Resources_id SERIAL NOT NULL,
+CREATE TABLE IF NOT EXISTS Task_Has_Materials (
+    Material_id SERIAL NOT NULL,
     Task_id SERIAL NOT NULL,
     
-    CONSTRAINT pk_Resource_Task PRIMARY KEY (Resources_id, Task_id),
-    CONSTRAINT fk_Task_has_Resources_Resources FOREIGN KEY (Resources_id)
-    	REFERENCES Spikee.Resources (Resource_id)
+    CONSTRAINT pk_Task_has_Materials PRIMARY KEY (Material_id, Task_id),
+    CONSTRAINT fk_Task_has_Materials_Materials FOREIGN KEY (Material_id)
+    	REFERENCES Spikee.Materials (Material_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE,
-    CONSTRAINT fk_Task_has_Resources_Task FOREIGN KEY (Task_id)
+    CONSTRAINT fk_Task_has_Materials_Task FOREIGN KEY (Task_id)
     	REFERENCES Spikee.Task (Task_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
@@ -140,10 +138,10 @@ CREATE TABLE IF NOT EXISTS Task_Has_Resources (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Uren (
     Gepland_einduur TIMESTAMP NULL,
-    Gepland_beginuur TIMESTAMP NULL,
+    Gepland_beginuur TIMESTAMP NOT NULL,
     Task_id SERIAL NOT NULL,
     
-    CONSTRAINT pk_Task_Project PRIMARY KEY (Task_id),
+    CONSTRAINT pk_Uren PRIMARY KEY (Gepland_beginuur, Task_id),
     CONSTRAINT fk_Uren_Task FOREIGN KEY (Task_id)
     	REFERENCES Spikee.Task (Task_id)
     	ON DELETE RESTRICT
@@ -169,7 +167,7 @@ CREATE TABLE IF NOT EXISTS Team_has_Task (
     Team_id SERIAL NOT NULL,
     Task_id SERIAL NOT NULL,
     
-    CONSTRAINT pk_Team_Task PRIMARY KEY (Team_id, Task_id),
+    CONSTRAINT pk_Team_has_Task PRIMARY KEY (Team_id, Task_id),
     CONSTRAINT fk_Team_has_Task_Team FOREIGN KEY (Team_id)
     	REFERENCES Spikee.Team (Team_id)
     	ON DELETE RESTRICT
@@ -201,7 +199,7 @@ CREATE TABLE IF NOT EXISTS Team_has_Werknemer (
     Werknemer_id SERIAL NOT NULL,
     Service_Area_Manager BOOLEAN NULL,
     
-    CONSTRAINT pk_Team_Werknemer PRIMARY KEY (Team_id, Werknemer_id),
+    CONSTRAINT pk_Team_has_Werknemer PRIMARY KEY (Team_id, Werknemer_id),
     CONSTRAINT fk_Team_has_Werknemer_Team FOREIGN KEY (Team_id)
     	REFERENCES Spikee.Team (Team_id)
     	ON DELETE NO ACTION
@@ -218,17 +216,18 @@ CREATE TABLE IF NOT EXISTS Team_has_Werknemer (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Werknemer_has_Uren (
     Werknemer_id SERIAL NOT NULL,
-    Uren_Task_id SERIAL NOT NULL,
+    Task_id SERIAL NOT NULL,
+    Uren_Gepland_beginuur TIMESTAMP NOT NULL,
     Gepresteerde_einduur TIMESTAMP NULL,
     Gepresteerde_beginuur TIMESTAMP NULL,
     
-    CONSTRAINT pk_Werknemer_Uren_Task PRIMARY KEY (Werknemer_id, Uren_Task_id),
+    CONSTRAINT pk_Werknemer_has_Uren PRIMARY KEY (Werknemer_id, Task_id, Uren_Gepland_beginuur),
     CONSTRAINT fk_Werknemer_has_Uren_Werknemer FOREIGN KEY (Werknemer_id)
     	REFERENCES Spikee.Werknemer (Werknemer_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE,
-    CONSTRAINT fk_Werknemer_has_Uren_Uren FOREIGN KEY (Uren_Task_id)
-    	REFERENCES Spikee.Uren (Task_id)
+    CONSTRAINT fk_Werknemer_has_Uren_Uren FOREIGN KEY (Task_id, Uren_Gepland_beginuur)
+    	REFERENCES Spikee.Uren (Task_id, Gepland_beginuur)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -238,18 +237,21 @@ CREATE TABLE IF NOT EXISTS Werknemer_has_Uren (
 -- Table Verlof
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Verlof (
-    Verlof_id VARCHAR(45) NOT NULL,
-    Begin_datum DATE NULL,
+    Begin_datum DATE NOT NULL,
     Eind_datum DATE NULL,
     Werknemer_id SERIAL NOT NULL,
     
-    CONSTRAINT pk_Verlof_Werknemer PRIMARY KEY (Verlof_id, Werknemer_id),
+    CONSTRAINT pk_Verlof PRIMARY KEY (Begin_datum, Werknemer_id),
     CONSTRAINT fk_Verlof_Werknemer FOREIGN KEY (Werknemer_id)
     	REFERENCES Spikee.Werknemer (Werknemer_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
 
+
+-- -----------------------------------------------------
+-- PRIVILEGES
+-- -----------------------------------------------------
 GRANT ALL PRIVILEGES
 ON TABLE Klant
 TO r0584854, r0662663, r0674221;
@@ -271,11 +273,11 @@ ON TABLE Problemen
 TO r0584854, r0662663, r0674221;
 
 GRANT ALL PRIVILEGES
-ON TABLE Resources
+ON TABLE Materials
 TO r0584854, r0662663, r0674221;
 
 GRANT ALL PRIVILEGES
-ON TABLE Task_Has_Resources
+ON TABLE Task_Has_Materials
 TO r0584854, r0662663, r0674221;
 
 GRANT ALL PRIVILEGES
