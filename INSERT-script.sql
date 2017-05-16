@@ -1,5 +1,5 @@
 -- ------------------------------------------------------------------ --
---INSERT TABLE klant --
+-- INSERT TABLE klant --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.klant( klant_id, naam ) VALUES
@@ -15,7 +15,7 @@ INSERT INTO spikee.klant( klant_id, naam ) VALUES
 	(10, 'Rune');
 
 -- ------------------------------------------------------------------ --
---INSERT TABLE project --
+-- INSERT TABLE project --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.project( project_id, start_datum, eind_datum, soort, tarief, klant_id ) VALUES 
@@ -28,7 +28,7 @@ INSERT INTO spikee.project( project_id, start_datum, eind_datum, soort, tarief, 
 	(7, '1876-09-30', '2007-12-03', 'Abonnement', 97650, 7);
 
 -- ------------------------------------------------------------------ --
---INSERT TABLE fase --
+-- INSERT TABLE fase --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.fase( project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget ) VALUES
@@ -41,10 +41,9 @@ INSERT INTO spikee.fase( project_id, stage, gebruikte_tijd, voorziene_tijd, gebr
 	(7, 'ontwerp', '66:00:00', '55:00:00', 97650, 5678);
 
 -- ------------------------------------------------------------------ --
---INSERT TABLE werknemer --
+-- INSERT TABLE werknemer --
 -- ------------------------------------------------------------------ --
 
-<<<<<<< HEAD
 INSERT INTO spikee.werknemer( werknemer_id, ziek, loon_category ) VALUES 
 	(1, false, 'Hoog'),
 	(2, false, 'Laag'),
@@ -54,8 +53,8 @@ INSERT INTO spikee.werknemer( werknemer_id, ziek, loon_category ) VALUES
 	(6, false, 'Hoog'),
 	(7, true, 'Laag');
 
------------------------------------------------------------------ --
---INSERT TABLE resources --
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE resources --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.resources(resource_id, soort ) VALUES
@@ -67,8 +66,8 @@ INSERT INTO spikee.resources(resource_id, soort ) VALUES
 	(6, 'computer'),
 	(7, 'computer');
 
------------------------------------------------------------------ --
---INSERT TABLE task --
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE task --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.task( task_id, voorziene_budget, gebruikte_budget, project_id ) VALUES 
@@ -80,8 +79,8 @@ INSERT INTO spikee.task( task_id, voorziene_budget, gebruikte_budget, project_id
 	(6, 9876, 466, 6),
 	(7, 567, 325676, 7);
 
------------------------------------------------------------------ --
---INSERT TABLE task --
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE team --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.team(team_id, naam ) VALUES
@@ -93,8 +92,8 @@ INSERT INTO spikee.team(team_id, naam ) VALUES
 	(6, 'UML'),
 	(7, 'algo');
 	
------------------------------------------------------------------ --
---INSERT TABLE task --
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE verlof --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.verlof( verlof_id, begin_datum, eind_datum, werknemer_id ) VALUES
@@ -103,22 +102,84 @@ INSERT INTO spikee.verlof( verlof_id, begin_datum, eind_datum, werknemer_id ) VA
 	(3, '2000-08-25' , '2012-12-07', 7),
 	(4, '2004-01-15' , '2004-01-16', 2);
 
------------------------------------------------------------------ --
---INSERT TABLE problem --
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE problemen --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.problemen( probleem_id, description, prioriteit, task_id ) VALUES
 	(1, 'abcde', 'Laag', 3),
-	(1, 'abcdef', 'Medium', 5),
-	(1, 'abcdeg', 'Medium', 2),
-	(1, 'abcdeh', 'Laag', 7),
-	(1, 'abcdei', 'Hoog', 1),
-	(1, 'abcdej', 'Hoog', 4),
-	(1, 'abcdek', 'Medium', 6);
+	(2, 'abcdef', 'Medium', 5),
+	(3, 'abcdeg', 'Medium', 2),
+	(4, 'abcdeh', 'Laag', 7),
+	(5, 'abcdei', 'Hoog', 1),
+	(6, 'abcdej', 'Hoog', 4),
+	(7, 'abcdek', 'Medium', 6);
 
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE uren --
+-- ------------------------------------------------------------------ --
 
+INSERT INTO spikee.uren( gepland_einduur, gepland_beginuur, task_id ) VALUES
+	('1999-01-20 20:17:00', '1999-01-20 10:37:00', 1),
+	('2002-04-12 15:33:00', '2002-04-12 06:23:00', 4),
+	('2012-11-15 18:25:00', '2012-11-15 09:30:00', 3),
+	('2010-07-22 12:00:00', '2010-07-22 08:15:00', 2),
+	('2015-06-07 23:59:00', '2015-06-07 07:00:00', 5),
+	('2017-05-08 16:00:00', '2017-05-08 08:30:00', 6),
+	('2001-09-11 19:11:00', '2001-09-11 09:11:00', 7);
 
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE task_has_resources --
+-- ------------------------------------------------------------------ --
 
+INSERT INTO spikee.task_has_resources( resources_id, task_id ) VALUES
+	(1, 7),
+	(2, 6),
+	(3, 5),
+	(4, 4),
+	(5, 3),
+	(6, 2),
+	(7, 1);
 
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE team_has_task --
+-- ------------------------------------------------------------------ --
 
+INSERT INTO spikee.team_has_task( team_id, task_id ) VALUES
+	(7, 7),
+	(5, 6),
+	(3, 5),
+	(1, 4),
+	(6, 3),
+	(4, 2),
+	(2, 1);
 
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE team_has_werknemer --
+-- ------------------------------------------------------------------ --
+
+INSERT INTO spikee.team_has_werknemer( team_id, werknemer_id, service_area_manager ) VALUES
+	(7, 1, true),
+	(5, 3, true),
+	(3, 6, false),
+	(1, 7, true),
+	(6, 4, false),
+	(4, 5, false),
+	(2, 2, false);
+
+-- ------------------------------------------------------------------ --
+-- INSERT TABLE werknemer_has_uren --
+-- ------------------------------------------------------------------ --
+
+INSERT INTO spikee.werknemer_has_uren( werknemer_id, uren_task_id, gepresteerde_einduur, gepresteerde_beginuur ) VALUES
+	(7, 1, '1999-01-20 20:17:00', '1999-01-20 10:37:00'),
+	(5, 2, '2002-04-12 15:33:00', '2002-04-12 06:23:00'),
+	(3, 3, '2012-11-15 18:25:00', '2012-11-15 09:30:00'),
+	(1, 4, '2010-07-22 12:00:00', '2010-07-22 08:15:00'),
+	(6, 5, '2015-06-07 23:59:00', '2015-06-07 07:00:00'),
+	(4, 6, '2017-05-08 16:00:00', '2017-05-08 08:30:00'),
+	(2, 7, '2001-09-11 19:11:00', '2001-09-11 09:11:00');
+
+-- ------------------------------------------------------------------ --
+-- END INSERT TABLE SCRIPT --
+-- ------------------------------------------------------------------ --
