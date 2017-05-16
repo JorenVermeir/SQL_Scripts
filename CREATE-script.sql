@@ -7,13 +7,6 @@ COMMENT ON SCHEMA Spikee IS 'Assignment TD2';
 
 SET SEARCH_PATH TO Spikee;
 
-GRANT ALL ON SCHEMA Spikee TO r0584854;
-
-GRANT ALL ON SCHEMA Spikee TO r0662663;
-
-GRANT ALL ON SCHEMA Spikee TO r0674221;
-
-
 -- -----------------------------------------------------
 -- Table Klant
 -- -----------------------------------------------------
@@ -252,6 +245,16 @@ CREATE TABLE IF NOT EXISTS Verlof (
 -- -----------------------------------------------------
 -- PRIVILEGES
 -- -----------------------------------------------------
+
+GRANT ALL ON SCHEMA Spikee TO r0584854;
+
+GRANT ALL ON SCHEMA Spikee TO r0662663;
+
+GRANT ALL ON SCHEMA Spikee TO r0674221;
+
+GRANT ALL ON ALL SEQUENCES IN SCHEMA Spikee to r0584854, r0662663, r0674221;
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA Spikee to r0584854, r0662663, r0674221;
+
 GRANT ALL PRIVILEGES
 ON TABLE Klant
 TO r0584854, r0662663, r0674221;
