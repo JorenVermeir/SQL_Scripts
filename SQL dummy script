@@ -1,0 +1,231 @@
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (1, 'Mathias');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (2, 'Shiva');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (3, 'Arnold');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (4, 'Pietsnol');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (5, 'Jaak');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (6, 'Freddie');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (7, 'Dirk');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (8, 'Jan');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (9, 'Sam');
+
+INSERT INTO spikee.klant(
+	klant_id, naam)
+	VALUES (10, 'Rune');
+
+-- ------------------------------------------------------------------ --
+
+INSERT INTO spikee.project(
+	project_id, start_datum, eind_datum, soort, tarief)
+	VALUES (1, '1997-07-18', '2001-03-11', 'onderhoud', 4500);
+
+INSERT INTO spikee.project(
+	project_id, start_datum, eind_datum, soort, tarief)
+	VALUES (2, '1997-07-18', '2007-11-11', 'applicatie', 90000);
+
+INSERT INTO spikee.project(
+	project_id, start_datum, eind_datum, soort, tarief)
+	VALUES (3, '1981-07-18', '2017-03-01', 'onderhoud', 35789,53);
+
+INSERT INTO spikee.project(
+	project_id, start_datum, eind_datum, soort, tarief)
+	VALUES (4, '1917-01-19', '2011-04-27', 'website', 12);
+
+INSERT INTO spikee.project(
+	project_id, start_datum, eind_datum, soort, tarief)
+	VALUES (5, '1998-04-18', '2018-09-21', 'onderhoud', 450900);
+
+INSERT INTO spikee.project(
+	project_id, start_datum, eind_datum, soort, tarief)
+	VALUES (6, '1997-07-18', '2001-03-11', 'applicatie', 77500);
+	
+INSERT INTO spikee.project(
+	project_id, start_datum, eind_datum, soort, tarief)
+	VALUES (7, '1876-09-31', '2007-12-03', 'onderhoud', 97650);
+
+-- ------------------------------------------------------------------ --
+
+INSERT INTO spikee.fase(
+	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
+	VALUES (1, 'eind ontwikkeling', 123,678 , 97650, 5678);
+
+INSERT INTO spikee.fase(
+	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
+	VALUES (2, 'eind ontwikkeling', 56,876 , 97650, 5678);
+	
+INSERT INTO spikee.fase(
+	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
+	VALUES (3, 'eind ontwikkeling', 5678, 76, 97650, 5678);
+	
+INSERT INTO spikee.fase(
+	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
+	VALUES (4, 'eind ontwikkeling', 678, 678, 97650, 5678);
+	
+INSERT INTO spikee.fase(
+	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
+	VALUES (5, 'eind ontwikkeling', 9865, 6543, 97650, 5678);
+	
+INSERT INTO spikee.fase(
+	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
+	VALUES (6, 'eind ontwikkeling', 567, 765, 97650, 5678);
+
+INSERT INTO spikee.fase(
+	project_id, stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget)
+	VALUES (7, 'eind ontwikkeling', 6789, 65, 97650, 5678);
+
+-- ------------------------------------------------------------------ --
+
+
+INSERT INTO spikee.task(
+	task_id, voorziene_budget, gebruikte_budget)
+	VALUES (1, 567, 5678);
+	
+INSERT INTO spikee.task(
+	task_id, voorziene_budget, gebruikte_budget)
+	VALUES (2, 970, 245);
+	
+INSERT INTO spikee.task(
+	task_id, voorziene_budget, gebruikte_budget)
+	VALUES (3, 57986, 2455);
+	
+INSERT INTO spikee.task(
+	task_id, voorziene_budget, gebruikte_budget)
+	VALUES (4, 555, 555);
+	
+INSERT INTO spikee.task(
+	task_id, voorziene_budget, gebruikte_budget)
+	VALUES (5, 3456, 5678);
+	
+INSERT INTO spikee.task(
+	task_id, voorziene_budget, gebruikte_budget)
+	VALUES (6, 9876, 466);
+	
+INSERT INTO spikee.task(
+	task_id, voorziene_budget, gebruikte_budget)
+	VALUES (7, 567, 325676);
+	
+-- ------------------------------------------------------------------ --
+
+INSERT INTO spikee.resources(
+	resource_id, soort)
+	VALUES (1, 'computer');
+
+INSERT INTO spikee.resources(
+	resource_id, soort)
+	VALUES (2, 'netwerk team');
+
+INSERT INTO spikee.resources(
+	resource_id, soort)
+	VALUES (3, 'programeur');
+
+INSERT INTO spikee.resources(
+	resource_id, soort)
+	VALUES (4, 'multimeter');
+
+INSERT INTO spikee.resources(
+	resource_id, soort)
+	VALUES (5, 'computer');
+
+INSERT INTO spikee.resources(
+	resource_id, soort)
+	VALUES (6, 'computer');
+
+INSERT INTO spikee.resources(
+	resource_id, soort)
+	VALUES (7, 'computer');
+
+-- ------------------------------------------------------------------ --
+
+
+-- probleem nogniet gedaan --
+
+-- ------------------------------------------------------------------ --
+
+
+
+INSERT INTO spikee.team(
+	team_id, naam)
+	VALUES (1, 'netwerken');
+
+INSERT INTO spikee.team(
+	team_id, naam)
+	VALUES (2, 'OOP');
+
+INSERT INTO spikee.team(
+	team_id, naam)
+	VALUES (3, 'linux');
+
+INSERT INTO spikee.team(
+	team_id, naam)
+	VALUES (4, 'onderhoud');
+
+INSERT INTO spikee.team(
+	team_id, naam)
+	VALUES (5, 'grafisch');
+
+INSERT INTO spikee.team(
+	team_id, naam)
+	VALUES (6, 'UML');
+
+INSERT INTO spikee.team(
+	team_id, naam)
+	VALUES (7, 'algo');
+
+
+-- ------------------------------------------------------------------ --
+
+
+INSERT INTO spikee.werknemer(
+	werknemer_id, ziek, loon_categorie)
+	VALUES (1, false, 'Hoog');
+	
+INSERT INTO spikee.werknemer(
+	werknemer_id, ziek, loon_categorie)
+	VALUES (2, false, 'Laag');
+
+INSERT INTO spikee.werknemer(
+	werknemer_id, ziek, loon_categorie)
+	VALUES (3, false, 'Hoog');
+
+INSERT INTO spikee.werknemer(
+	werknemer_id, ziek, loon_categorie)
+	VALUES (4, true, 'Hoog');
+
+INSERT INTO spikee.werknemer(
+	werknemer_id, ziek, loon_categorie)
+	VALUES (5, false, 'Gemiddeld');
+
+INSERT INTO spikee.werknemer(
+	werknemer_id, ziek, loon_categorie)
+	VALUES (6, false, 'Hoog');
+
+INSERT INTO spikee.werknemer(
+	werknemer_id, ziek, loon_categorie)
+	VALUES (7, true, 'Laag');
+
+-- ------------------------------------------------------------------ --
