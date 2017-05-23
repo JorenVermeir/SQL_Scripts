@@ -62,9 +62,9 @@ INSERT INTO spikee.werknemer( werknemer_id, naam, ziek, loon_category ) VALUES
 	(5, 'Arnold', false, 'Gemiddeld'),
 	(6, 'Pieter', false, 'Hoog'),
 	(7, 'Thomas', true, 'Laag'),
-	(8, 'Arnold', false, 'Gemiddeld'),
-	(9, 'Pieter', false, 'Hoog'),
-	(10, 'Thomas', true, 'Laag');
+	(8, 'Josh', false, 'Gemiddeld'),
+	(9, 'Ellen', false, 'Hoog'),
+	(10, 'Amy', true, 'Laag');
 
 
 -- ------------------------------------------------------------------ --
@@ -94,9 +94,9 @@ INSERT INTO spikee.task( task_id, naam, voorziene_budget, gebruikte_budget, proj
 	(6, 'UI', 9876, 4696, 6),
 	(7, 'Tutorial', 5677, 325676, 6),
 
-	(8, 'Graphics Design', 22567, 5678, 2),
-	(9, 'Terrain Design', 97660, 245, 3),
-	(10, 'Ai Design', 57986, 2666455, 7),
+	(8, 'Front web development', 22567, 5678, 2),
+	(9, 'Game Site', 97660, 245, 3),
+	(10, 'Forum', 57986, 2666455, 7),
 	(11, 'Storyline writing', 55555, 555, 6),
 	(12, 'Audio Design', 345666, 5678,4),
 	(13, 'UI', 9876, 466, 5),
