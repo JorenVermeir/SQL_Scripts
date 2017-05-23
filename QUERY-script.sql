@@ -16,11 +16,10 @@ END
 
 
 -- 3.
-select st.naam, sw.naam ,sw.werknemer_id
+SELECT st.naam, sw.naam ,sw.werknemer_id
 FROM spikee.team st INNER JOIN spikee.team_has_werknemer sthw ON (st.team_id = sthw.team_id)
 	INNER JOIN spikee.werknemer sw ON (sthw.werknemer_id = sw.werknemer_id)
 ORDER BY sw.naam
-
 
 -- 4.
 
