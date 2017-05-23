@@ -11,21 +11,23 @@ WHEN fase.stage = 'testing' THEN '4'
 WHEN fase.stage = 'onderhoud' THEN '5'
 END
 
--- 2.
+-- 2. Wat zijn de problemen dat een taak heeft.
 
 
 
--- 3.
+-- 3. Tot welke teams behoort een werknemer.
+
 SELECT st.naam, sw.naam ,sw.werknemer_id
 FROM spikee.team st INNER JOIN spikee.team_has_werknemer sthw ON (st.team_id = sthw.team_id)
 	INNER JOIN spikee.werknemer sw ON (sthw.werknemer_id = sw.werknemer_id)
 ORDER BY sw.naam
 
--- 4.
+-- 4. Welke werknemers zitten in een team.
 
 
 
--- 5.
+-- 5. Aan welke taken werkt een werknemer en tot welk project behoort deze taak, rangschik alfabetisch op naam van de werknemer.
+
 SELECT swe.naam, st.naam, spr.naam
 FROM spikee.task st LEFT JOIN spikee.team_has_task stht ON (st.task_id = stht.task_id)
 	INNER JOIN spikee.team ste ON (stht.team_id = ste.team_id)
@@ -33,20 +35,17 @@ FROM spikee.task st LEFT JOIN spikee.team_has_task stht ON (st.task_id = stht.ta
 	INNER JOIN spikee.werknemer swe ON (sthw.werknemer_id = swe.werknemer_id)
 	INNER JOIN spikee.project spr USING (project_id)
 ORDER BY swe.naam
--- 6.
+
+-- 6. Per team weergeven in welke fase het project zit.
 
 
 
--- 7.
+-- 7. Het totaal aantal uren dat een team aan een project heeft gewerkt.
 
 
 
--- 8.
+-- 8. Wat is het team die de meeste problemen heeft.
 
 
 
--- 9.
-
-
-
--- 10.
+-- 9. Welke werknemers werken aan de meeste taken (van hoog naar laag).
