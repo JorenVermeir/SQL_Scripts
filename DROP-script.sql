@@ -12,5 +12,6 @@ DROP TABLE spikee.task;
 DROP TABLE spikee.project;
 DROP TABLE spikee.klant;
 DROP TABLE spikee.werknemer;
-
-
+DROP TYPE spikee.ENUM_SOORT;
+DROP TYPE spikee.ENUM_STAGE;
+DROP TYPE spikee.ENUM_PRIORITEIT

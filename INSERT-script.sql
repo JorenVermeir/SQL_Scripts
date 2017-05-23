@@ -18,14 +18,14 @@ INSERT INTO spikee.klant( klant_id, naam ) VALUES
 -- INSERT TABLE project --
 -- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.project( project_id, start_datum, eind_datum, soort, tarief, klant_id ) VALUES 
-	(1, '1997-07-18', '2001-03-11', 'Fixed-Price', 4500, 1),
-	(2, '1997-07-18', '2007-11-11', 'T&M Project', 90000, 2),
-	(3, '1981-07-18', '2017-03-01', 'T&M Diensten', 35789.53, 3),
-	(4, '1917-01-19', '2011-04-27', 'Abonnement', 12, 4),
-	(5, '1998-04-18', '2018-09-21', 'Fixed-Price', 450900, 5),
-	(6, '1997-07-18', '2001-03-11', 'T&M Diensten', 77500, 6),
-	(7, '1876-09-30', '2007-12-03', 'Abonnement', 97650, 7);
+INSERT INTO spikee.project( project_id, naam, start_datum, eind_datum, soort, tarief, klant_id ) VALUES 
+	(1, 'CSGO', '1997-07-18', '2001-03-11', 'Fixed-Price', 4500, 1),
+	(2, 'Minecraft', '1997-07-18', '2007-11-11', 'T&M Project', 90000, 2),
+	(3, 'League of Legends', '1981-07-18', '2017-03-01', 'T&M Diensten', 35789.53, 3),
+	(4, 'Roblox', '1917-01-19', '2011-04-27', 'Abonnement', 12, 4),
+	(5, 'Arma 3', '1998-04-18', '2018-09-21', 'Fixed-Price', 450900, 5),
+	(6, 'Outlast 2', '1997-07-18', '2001-03-11', 'T&M Diensten', 77500, 6),
+	(7, 'Rocket League', '1876-09-30', '2007-12-03', 'Abonnement', 97650, 7);
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE fase --
@@ -34,24 +34,38 @@ INSERT INTO spikee.project( project_id, start_datum, eind_datum, soort, tarief, 
 INSERT INTO spikee.fase( stage, gebruikte_tijd, voorziene_tijd, gebruikt_budget, voorzien_budget, project_id) VALUES
 	('onderhoud', '12:00:00', '13:00:00' , 97650, 5678, 1),
 	('voorbereiding', '3300:00:00', '2200:00:00' , 97650, 5678, 2),
-	('testing', '58:00:00', '59:00:00', 97650, 5678, 3),
+	('testing', '58:00:00', '59:00:00', 97650, 5678, 5),
 	('voorbereiding', '123:00:00', '132:00:00', 97650, 5678, 4),
 	('verkoop', '2:00:00', '3:00:00', 97650, 5678, 5),
 	('implementatie', '16:00:00', '15:00:00', 97650, 5678, 6),
-	('ontwerp', '66:00:00', '55:00:00', 97650, 5678, 7);
+	('ontwerp', '66:00:00', '55:00:00', 97650, 5678, 1),
+	
+	('onderhoud', '15:00:00', '15:00:01' , 976570, 56678, 6),
+	('voorbereiding', '30:00:00', '20:00:00' , 997650, 56678, 5),
+	('testing', '22:00:20', '22:00:00', 97650, 56798, 2),
+	('voorbereiding', '555:00:00', '666:00:00', 975650, 58678, 3),
+	('verkoop', '9:00:00', '1:00:00', 97650, 56785, 7),
+	('implementatie', '10:30:00', '11:00:00', 976550, 56678, 4),
+	('ontwerp', '25:00:00', '25:00:00', 97650, 55678, 6);
+
+	
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE werknemer --
 -- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.werknemer( werknemer_id, ziek, loon_category ) VALUES 
-	(1, false, 'Hoog'),
-	(2, false, 'Laag'),
-	(3, false, 'Hoog'),
-	(4, true, 'Hoog'),
-	(5, false, 'Gemiddeld'),
-	(6, false, 'Hoog'),
-	(7, true, 'Laag');
+INSERT INTO spikee.werknemer( werknemer_id, naam, ziek, loon_category ) VALUES 
+	(1, 'Joran', false, 'Hoog'),
+	(2, 'Quinten', false, 'Laag'),
+	(3, 'Mathias', false, 'Hoog'),
+	(4, 'Shiva', true, 'Hoog'),
+	(5, 'Arnold', false, 'Gemiddeld'),
+	(6, 'Pieter', false, 'Hoog'),
+	(7, 'Thomas', true, 'Laag'),
+	(8, 'Arnold', false, 'Gemiddeld'),
+	(9, 'Pieter', false, 'Hoog'),
+	(10, 'Thomas', true, 'Laag');
+
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE materials --
@@ -59,25 +73,34 @@ INSERT INTO spikee.werknemer( werknemer_id, ziek, loon_category ) VALUES
 
 INSERT INTO spikee.materials(material_id, soort ) VALUES
 	(1, 'computer'),
-	(2, 'netwerk team'),
-	(3, 'programeur'),
+	(2, 'muis'),
+	(3, 'schaar'),
 	(4, 'multimeter'),
-	(5, 'geld'),
-	(6, 'tijd'),
-	(7, 'computer');
+	(5, 'router'),
+	(6, 'netwerkkabel'),
+	(7, 'laptop');
+
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE task --
 -- ------------------------------------------------------------------ --
 
-INSERT INTO spikee.task( task_id, voorziene_budget, gebruikte_budget, project_id ) VALUES 
-	(1, 567, 5678, 1),
-	(2, 970, 245, 2),
-	(3, 57986, 2455, 3),
-	(4, 555, 555, 4),
-	(5, 3456, 5678, 5),
-	(6, 9876, 466, 6),
-	(7, 567, 325676, 7);
+INSERT INTO spikee.task( task_id, naam, voorziene_budget, gebruikte_budget, project_id ) VALUES 
+	(1, 'Graphics Design', 22, 5678, 1),
+	(2, 'Terrain Design', 9750, 245, 1),
+	(3, 'Ai Design', 57986, 24455, 3),
+	(4, 'Storyline writing', 555, 555, 4),
+	(5, 'Audio Design', 3456, 58678,4),
+	(6, 'UI', 9876, 4696, 6),
+	(7, 'Tutorial', 5677, 325676, 6),
+
+	(8, 'Graphics Design', 22567, 5678, 2),
+	(9, 'Terrain Design', 97660, 245, 3),
+	(10, 'Ai Design', 57986, 2666455, 7),
+	(11, 'Storyline writing', 55555, 555, 6),
+	(12, 'Audio Design', 345666, 5678,4),
+	(13, 'UI', 9876, 466, 5),
+	(14, 'Tutorial', 567, 676, 6);
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE team --
@@ -100,20 +123,29 @@ INSERT INTO spikee.verlof( begin_datum, eind_datum, werknemer_id ) VALUES
 	('2012-10-05' , '2012-12-07', 1),
 	('2017-09-28' , '2017-12-17', 5),
 	('2000-08-25' , '2012-12-07', 7),
-	('2004-01-15' , '2004-01-16', 2);
+	('2004-01-15' , '2004-01-16', 2),
+
+	('2013-10-05' , '2019-12-07', 1),
+	('2015-09-28' , '2016-12-17', 6),
+	('2001-08-25' , '2002-12-07', 6),
+	('2006-01-15' , '2007-01-16', 3),
+
+	('2015-10-05' , '2016-12-07', 2),
+	('2018-09-28' , '2019-12-17', 3),
+	('2003-08-25' , '2004-12-07', 5),
+	('2009-01-15' , '2010-01-16', 9);
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE problemen --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.problemen( probleem_id, description, prioriteit, task_id ) VALUES
-	(1, 'abcde', 'Laag', 3),
-	(2, 'abcdef', 'Medium', 5),
-	(3, 'abcdeg', 'Medium', 2),
-	(4, 'abcdeh', 'Laag', 7),
-	(5, 'abcdei', 'Hoog', 1),
-	(6, 'abcdej', 'Hoog', 4),
-	(7, 'abcdek', 'Medium', 6);
+	(1, 'AI Loopt vast', 'Laag', 3),
+	(2, 'Graphics crasht', 'Medium', 2),
+	(3, 'UI is lelijk', 'Medium', 2),
+	(4, 'Multiplayer lagged', 'Laag', 7),
+	(5, 'AI loopt tegen de muur', 'Hoog', 1);
+
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE uren --
@@ -133,38 +165,26 @@ INSERT INTO spikee.uren( gepland_einduur, gepland_beginuur, task_id ) VALUES
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.task_has_materials( material_id, task_id ) VALUES
-	(1, 7),
-	(2, 6),
-	(3, 5),
-	(4, 4),
-	(5, 3),
-	(6, 2),
-	(7, 1);
+	(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),(1,9),(1,10),(1,11),(1,12),(1,13),(1,14),(2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(2,7),(2,8),(2,9),(2,10),(2,11),(2,12),(2,13),(2,14),(3,1),(3,2),(3,8),(3,9),(3,10),(3,11),(3,12),(3,13),(3,14),(4,1),(5,4),(5,5),(5,6),(5,7),(5,8),(5,9),(5,10),(5,11),(6,14),(7,1),(7,2),(7,3),(7,4),(7,5),(7,6),(7,7),(7,8),(7,9),(7,10),(7,11),(7,12),(7,13),(7,14);
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE team_has_task --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.team_has_task( team_id, task_id ) VALUES
-	(7, 7),
-	(5, 6),
-	(3, 5),
-	(1, 4),
-	(6, 3),
-	(4, 2),
-	(2, 1);
+	(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),(1,9),(1,10),(1,11),(1,12),(1,13),(1,14),(2,1),(2,2),(2,3),(2,11),(2,12),(2,13),(2,14),(3,1),(3,2),(3,8),(3,9),(3,10),(3,11),(3,12),(3,13),(3,14),(4,1),(5,4),(5,5),(5,6),(5,7),(5,8),(5,9),(5,10),(5,11),(6,14),(7,1),(7,2),(7,3),(7,4),(7,5),(7,6),(7,7),(7,8);
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE team_has_werknemer --
 -- ------------------------------------------------------------------ --
 
 INSERT INTO spikee.team_has_werknemer( team_id, werknemer_id, service_area_manager ) VALUES
-	(7, 1, true),
+	(7, 10, true),
 	(5, 3, true),
-	(3, 6, false),
+	(3, 9, false),
 	(1, 7, true),
-	(6, 4, false),
-	(4, 5, false),
+	(6, 6, false),
+	(4, 6, false),
 	(2, 2, false);
 
 -- ------------------------------------------------------------------ --
