@@ -25,6 +25,7 @@ CREATE TYPE ENUM_SOORT AS ENUM ('Fixed-Price','T&M Project','T&M Diensten','Abon
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Project (
     Project_id SERIAL NOT NULL,
+    Naam VARCHAR(45) NULL,
     Start_datum DATE NULL,
     Eind_datum DATE NULL,
     Soort ENUM_SOORT NULL,
@@ -65,6 +66,7 @@ CREATE TABLE IF NOT EXISTS Fase (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Task (
     Task_id SERIAL NOT NULL,
+    Naam VARCHAR(45) NULL,
     Voorziene_budget MONEY NULL,
     Gebruikte_budget MONEY NULL,
     Project_id SERIAL NOT NULL,
@@ -177,6 +179,7 @@ CREATE TABLE IF NOT EXISTS Team_has_Task (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS Werknemer (
     Werknemer_id SERIAL NOT NULL,
+    Naam VARCHAR(45) NULL,
     Ziek BOOLEAN NULL,
     Loon_category VARCHAR(45) NULL,
     
