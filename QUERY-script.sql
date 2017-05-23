@@ -26,9 +26,13 @@ ORDER BY sw.naam
 
 
 -- 5.
-
-
-
+SELECT swe.naam, st.naam, spr.naam
+FROM spikee.task st LEFT JOIN spikee.team_has_task stht ON (st.task_id = stht.task_id)
+	INNER JOIN spikee.team ste ON (stht.team_id = ste.team_id)
+	INNER JOIN spikee.team_has_werknemer sthw ON (ste.team_id = sthw.team_id)
+	INNER JOIN spikee.werknemer swe ON (sthw.werknemer_id = swe.werknemer_id)
+	INNER JOIN spikee.project spr USING (project_id)
+ORDER BY swe.naam
 -- 6.
 
 
