@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS Project (
     
     CONSTRAINT pk_Project PRIMARY KEY (Project_id),
     CONSTRAINT fk_Project_Klant FOREIGN KEY (Klant_id)
-    	REFERENCES Spikee.Klant (Klant_id)
+    	REFERENCES Klant (Klant_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS Fase (
     
     CONSTRAINT pk_Fase PRIMARY KEY (Project_id, Stage),
     CONSTRAINT fk_Fase_Project FOREIGN KEY (Project_id)
-    	REFERENCES Spikee.Project (Project_id)
+    	REFERENCES Project (Project_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS Task (
     
     CONSTRAINT pk_Task PRIMARY KEY (Task_id),
     CONSTRAINT fk_Task_Project FOREIGN KEY (Project_id)
-    	REFERENCES Spikee.Project (Project_id)
+    	REFERENCES Project (Project_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS Problemen (
     
     CONSTRAINT pk_Problemen PRIMARY KEY (Probleem_id),
     CONSTRAINT fk_Problemen_Task FOREIGN KEY (Task_id)
-    	REFERENCES Spikee.Task (Task_id)
+    	REFERENCES Task (Task_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -118,11 +118,11 @@ CREATE TABLE IF NOT EXISTS Task_Has_Materials (
     
     CONSTRAINT pk_Task_has_Materials PRIMARY KEY (Material_id, Task_id),
     CONSTRAINT fk_Task_has_Materials_Materials FOREIGN KEY (Material_id)
-    	REFERENCES Spikee.Materials (Material_id)
+    	REFERENCES Materials (Material_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE,
     CONSTRAINT fk_Task_has_Materials_Task FOREIGN KEY (Task_id)
-    	REFERENCES Spikee.Task (Task_id)
+    	REFERENCES Task (Task_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS Uren (
     
     CONSTRAINT pk_Uren PRIMARY KEY (Gepland_beginuur, Task_id),
     CONSTRAINT fk_Uren_Task FOREIGN KEY (Task_id)
-    	REFERENCES Spikee.Task (Task_id)
+    	REFERENCES Task (Task_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -164,11 +164,11 @@ CREATE TABLE IF NOT EXISTS Team_has_Task (
     
     CONSTRAINT pk_Team_has_Task PRIMARY KEY (Team_id, Task_id),
     CONSTRAINT fk_Team_has_Task_Team FOREIGN KEY (Team_id)
-    	REFERENCES Spikee.Team (Team_id)
+    	REFERENCES Team (Team_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE,
     CONSTRAINT fk_Team_has_Task_Task FOREIGN KEY (Task_id)
-    	REFERENCES Spikee.Task (Task_id)
+    	REFERENCES Task (Task_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -197,11 +197,11 @@ CREATE TABLE IF NOT EXISTS Team_has_Werknemer (
     
     CONSTRAINT pk_Team_has_Werknemer PRIMARY KEY (Team_id, Werknemer_id),
     CONSTRAINT fk_Team_has_Werknemer_Team FOREIGN KEY (Team_id)
-    	REFERENCES Spikee.Team (Team_id)
+    	REFERENCES Team (Team_id)
     	ON DELETE NO ACTION
     	ON UPDATE NO ACTION,
     CONSTRAINT fk_Team_has_Werknemer_Werknemer FOREIGN KEY (Werknemer_id)
-    	REFERENCES Spikee.Werknemer (Werknemer_id)
+    	REFERENCES Werknemer (Werknemer_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -219,11 +219,11 @@ CREATE TABLE IF NOT EXISTS Werknemer_has_Uren (
     
     CONSTRAINT pk_Werknemer_has_Uren PRIMARY KEY (Werknemer_id, Task_id, Uren_Gepland_beginuur),
     CONSTRAINT fk_Werknemer_has_Uren_Werknemer FOREIGN KEY (Werknemer_id)
-    	REFERENCES Spikee.Werknemer (Werknemer_id)
+    	REFERENCES Werknemer (Werknemer_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE,
     CONSTRAINT fk_Werknemer_has_Uren_Uren FOREIGN KEY (Task_id, Uren_Gepland_beginuur)
-    	REFERENCES Spikee.Uren (Task_id, Gepland_beginuur)
+    	REFERENCES Uren (Task_id, Gepland_beginuur)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
@@ -239,7 +239,7 @@ CREATE TABLE IF NOT EXISTS Verlof (
     
     CONSTRAINT pk_Verlof PRIMARY KEY (Begin_datum, Werknemer_id),
     CONSTRAINT fk_Verlof_Werknemer FOREIGN KEY (Werknemer_id)
-    	REFERENCES Spikee.Werknemer (Werknemer_id)
+    	REFERENCES Werknemer (Werknemer_id)
     	ON DELETE RESTRICT
     	ON UPDATE CASCADE
 );
