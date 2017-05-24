@@ -185,7 +185,12 @@ INSERT INTO team_has_werknemer( team_id, werknemer_id, service_area_manager ) VA
 	(1, 7, true),
 	(6, 6, false),
 	(4, 6, false),
-	(2, 2, false);
+	(2, 2, false),
+
+	(1, 4, true),
+	(2, 1, true),
+	(3, 5, false),
+	(4, 8, true);
 
 -- ------------------------------------------------------------------ --
 -- INSERT TABLE werknemer_has_uren --
