@@ -70,4 +70,4 @@ SELECT project.naam, ROUND(AVG(fase.gebruikt_budget::numeric), 2)
 FROM fase INNER JOIN project USING (project_id)
 GROUP BY project.project_id, project.naam
 
--- 10. Welke werknemer heeft meer dan 20 uur gepresteerd.
+-- 10. Welke werknemer heeft meer dan 9 uur gepresteerd.
