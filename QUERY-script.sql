@@ -66,3 +66,5 @@ order by count(*) desc
 
 
 -- 9. Het gemiddeld gebruikt budget per project.
+
+-- 10. Welk team bevat meer als een werknemer, en hoeveel werkenemers zijn er in totaal per team.
