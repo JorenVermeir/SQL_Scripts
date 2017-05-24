@@ -39,11 +39,17 @@ FROM spikee.task st LEFT JOIN spikee.team_has_task stht ON (st.task_id = stht.ta
 	INNER JOIN spikee.project spr USING (project_id)
 ORDER BY swe.naam
 
--- 6. Per team weergeven in welke fase het project zit.
+-- 6. toon voor elk team aan welke fases van elk project waar ze werken.
 
-
+SELECT distinct ste.naam as "team naam", sfa.stage, spr.naam as "project naam"
+FROM spikee.team ste INNER JOIN spikee.team_has_task stht USING (team_id) 
+		     INNER JOIN spikee.task USING (task_id) 
+		     INNER JOIN spikee.project spr USING (project_id) 
+		     INNER JOIN spikee.fase sfa USING (project_id)
+order by ste.naam
 
 -- 7. Het totaal aantal uren dat een team aan een project heeft gewerkt.
+
 
 
 -- 8. Welk team heeft 5 of meer problemen, georderd op grootst aantal problemen
