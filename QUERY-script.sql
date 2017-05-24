@@ -47,6 +47,10 @@ ORDER BY swe.naam
 
 -- 8. Wat is het team die de meeste problemen heeft.
 
-
+SELECT ste.naam
+FROM spikee.team ste INNER JOIN spikee.team_has_task stht USING (team_id)
+	INNER JOIN spikee.task sta USING (task_id)
+	INNER JOIN spikee.problemen spr USING 	(task_id)
+WHERE max(count(spr.))
 
 -- 9. Welke werknemers werken aan de meeste taken (van hoog naar laag).
