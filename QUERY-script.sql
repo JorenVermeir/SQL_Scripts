@@ -13,7 +13,7 @@ END
 
 -- 2. Wat zijn de problemen dat een taak heeft.
 
-SELECT *
+SELECT task.task_id, task.naam, problemen.description, problemen.prioriteit
 FROM spikee.task INNER JOIN spikee.problemen USING (task_id)
 
 -- 3. Tot welke teams behoort een werknemer.
