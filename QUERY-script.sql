@@ -25,7 +25,9 @@ ORDER BY sw.naam
 
 -- 4. Welke werknemers zitten in een team.
 
-
+SELECT sw.naam, st.naam
+FROM spikee.werknemer sw INNER JOIN spikee.team_has_werknemer sthw ON (sw.werknemer_id = sthw.werknemer_id)
+	INNER JOIN spikee.team st ON (sthw.team_id = st.team_id)
 
 -- 5. Aan welke taken werkt een werknemer en tot welk project behoort deze taak, rangschik alfabetisch op naam van de werknemer.
 
