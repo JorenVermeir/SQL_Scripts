@@ -1,6 +1,6 @@
 -- 1. In welke fase zit het project en sorteer op volgorde van fases
 
-SELECT fase.stage, project_id
+SELECT fase.stage, spikee.project.naam
 FROM spikee.project INNER JOIN spikee.fase USING (project_id)
 ORDER BY CASE
 WHEN fase.stage = 'verkoop' THEN '0'
