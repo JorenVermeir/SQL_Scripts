@@ -43,12 +43,6 @@ ORDER BY swe.naam
 
 -- 7. Het totaal aantal uren dat een team aan een project heeft gewerkt.
 
-SELECT ste.naam
-FROM spikee.team ste INNER JOIN spikee.team_has_task stht USING (team_id)
-	INNER JOIN spikee.task sta USING (task_id)
-	INNER JOIN spikee.problemen spr USING 	(task_id)
-WHERE max(count(spr.))
-
 
 -- 8. Welk team heeft 5 of meer problemen, georderd op grootst aantal problemen
 
