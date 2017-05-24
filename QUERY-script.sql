@@ -65,4 +65,4 @@ having count(*) >= 5
 order by count(*) desc
 
 
--- 9. Welke werknemers werken aan de meeste taken (van hoog naar laag).
+-- 9. Het gemiddeld gebruikt budget per project.
