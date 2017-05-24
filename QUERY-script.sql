@@ -50,7 +50,15 @@ FROM spikee.team ste INNER JOIN spikee.team_has_task stht USING (team_id)
 WHERE max(count(spr.))
 
 
--- 8. Wat is het team die de meeste problemen heeft.
+-- 8. Welk team heeft 5 of meer problemen, georderd op grootst aantal problemen
+
+SELECT ste.naam, count(*) as "aantal problemen"
+FROM spikee.team ste INNER JOIN spikee.team_has_task stht USING (team_id)
+	INNER JOIN spikee.task sta USING (task_id)
+	INNER JOIN spikee.problemen spr USING (task_id)
+group by ste.naam
+having count(*) >= 5
+order by count(*) desc
 
 
 -- 9. Welke werknemers werken aan de meeste taken (van hoog naar laag).
