@@ -48,9 +48,11 @@ FROM spikee.team ste INNER JOIN spikee.team_has_task stht USING (team_id)
 		     INNER JOIN spikee.fase sfa USING (project_id)
 order by ste.naam
 
--- 7. Het totaal aantal uren dat een team aan een project heeft gewerkt.
+-- 7. het totaal aantal uren dat aan elk project besteed is geweest.
 
-
+SELECT sp.naam, sum(sf.gebruikte_tijd)
+FROM spikee.project sp INNER JOIN spikee.fase sf on (sp.project_id = sf.project_id)
+GROUP BY sp.naam
 
 -- 8. Welk team heeft 5 of meer problemen, georderd op grootst aantal problemen
 
