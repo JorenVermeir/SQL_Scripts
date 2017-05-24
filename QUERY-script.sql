@@ -72,8 +72,8 @@ GROUP BY project.project_id, project.naam
 
 -- 10. Welke werknemer heeft meer dan 9 uur gepresteerd.
 
-SELECT sw.naam, su.gepland_einduur -su.gepland_beginuur as "Uren gepresteerd"
+SELECT sw.naam, SUM(su.gepland_einduur - su.gepland_beginuur) as "Uren gepresteerd"
 FROM spikee.werknemer sw INNER JOIN spikee.werknemer_has_uren swhu on (sw.werknemer_id = swhu.werknemer_id)
 INNER JOIN spikee.uren su on (swhu.uren_gepland_beginuur = su.gepland_beginuur)
 GROUP BY sw.naam
-HAVING su.gepland_einduur - su.gepland_beginuur > '09:00:00'
+HAVING SUM(su.gepland_einduur - su.gepland_beginuur) > '09:00:00'
