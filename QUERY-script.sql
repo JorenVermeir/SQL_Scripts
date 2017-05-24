@@ -64,7 +64,10 @@ group by ste.naam
 having count(*) >= 5
 order by count(*) desc
 
-
 -- 9. Het gemiddeld gebruikt budget per project.
+
+SELECT project.naam, ROUND(AVG(fase.gebruikt_budget::numeric), 2)
+FROM fase INNER JOIN project USING (project_id)
+GROUP BY project.project_id, project.naam
 
 -- 10. Welke werknemer heeft meer dan 20 uur gepresteerd.
